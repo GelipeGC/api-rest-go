@@ -1,17 +1,14 @@
 package main
 
 import (
-	"fmt"
 	"net/http"
 	"log"
 	)
 
 	func main() {
-		http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request){
-			fmt.Fprintf(w, "holamundo desde mi servidor con go")
-		})
-
-		server := http.ListenAndServe(":8080", nil)
+		router := NewRouter();
+		server := http.ListenAndServe(":8080", router)
 		log.Fatal(server)
-		fmt.Println("El servidor  esta  corriendo en http:localhost:8080")
 	}
+
+	
